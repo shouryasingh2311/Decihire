@@ -11,7 +11,7 @@
 
 🔗 **Live Demo:** [decihire-production.vercel.app](https://decihire-production.vercel.app/)
 
-<img src="decihire.png" alt="DeciHire Dashboard" width="800px" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin-top: 20px;" />
+<img src="decihire_preview.png" alt="DeciHire Dashboard" width="800px" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin-top: 20px;" />
 
 </div>
 
