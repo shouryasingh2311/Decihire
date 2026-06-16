@@ -1,74 +1,187 @@
-# DeciHier
+# DeciHire — AI-Powered Hiring Assessment Platform
 
-**Live Link**: [https://decihire-production.vercel.app/](https://decihire-production.vercel.app/)
+<div align="center">
 
-DeciHier is a comprehensive candidate assessment platform and psychology predictor. Instead of just scoring correctness, DeciHier evaluates candidates on five critical dimensions using WorkDNA scoring: **Technical Acumen (TA)**, **Strategic Leadership (SL)**, **Ethical Responsibility (ER)**, **Business Profitability (BP)**, and **Behavioral Speed (BS)**. 
+**Evaluate candidates beyond correctness. Decode their WorkDNA.**
 
-The application implements a unique scoring logic where the time taken to answer each question is crucial:
-*   **Too Fast:** Heavy penalties applied (indicates lack of contemplation).
-*   **Too Slow:** Heavy penalties applied (indicates inefficiency).
-*   **Optimal Time:** Bonus points awarded.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-3.x-green.svg)](https://flask.palletsprojects.com)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black.svg)](https://vercel.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Features
+🔗 **Live Demo:** [decihire-production.vercel.app](https://decihire-production.vercel.app/)
 
-*   **Candidate Portal:** A timed assessment interface where candidates login using a Test ID and their name to complete their personalized test.
-*   **HR Dashboard:** A dedicated portal for HR professionals to generate targeted test keys for multiple profiles (e.g., DevOps Engineer, Data Scientist, UI/UX Designer) and deeply analyze candidate performance reports.
-*   **Advanced Analytics:** Real-time generation of results showing raw score impact, behavioral summaries (fast vs. slow responses), and a normalized total score.
-*   **Modern Interface:** Dark-mode responsive UI incorporating animated visualizations and specific job role iconography.
+</div>
 
-## Tech Stack
-*   **Backend:** Python / Flask
-*   **Frontend:** HTML, CSS, JavaScript (GSAP used for ScrollTriggers and animations in past iterations, integrated into responsive templates)
-*   **Hosting:** Hosted serverless on Vercel
+---
 
-## Setup & Local Installation Instructions
+## 🧬 What is DeciHire?
 
-Follow these instructions to run the project on your local machine.
+DeciHire is a next-generation candidate assessment platform that goes beyond right-or-wrong answers. It evaluates candidates across **five critical psychological dimensions** — the **WorkDNA** — by analysing both *what* they answer and *how long* they take.
+
+Unlike traditional MCQ platforms, DeciHire penalises both extremes:
+- ⚡ **Too fast** → Heavy penalty (lack of contemplation)
+- 🐢 **Too slow** → Heavy penalty (inefficiency)
+- ✅ **Optimal time** → Bonus points awarded
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🧠 **WorkDNA Scoring** | Evaluates 5 dimensions: TA, SL, ER, BP, BS |
+| ⏱️ **Behavioral Timing Engine** | Scores candidates based on response time, not just accuracy |
+| 👤 **Candidate Portal** | Login with Test ID + name; complete a timed, personalised assessment |
+| 🏢 **HR Dashboard** | Generate test keys per job role; view full candidate reports |
+| 📊 **Advanced Analytics** | Raw score, behavioral summary, normalized WorkDNA radar |
+| 🎨 **Modern Dark UI** | Animated, dark-mode responsive interface with job role iconography |
+| ☁️ **Serverless Deploy** | Zero-config hosting on Vercel |
+| 🔑 **Role-Specific Tests** | Tailored question banks: DevOps, Data Scientist, UI/UX, Cloud Architect & more |
+
+---
+
+## 🧬 The 5 WorkDNA Dimensions
+
+| Dimension | Code | What It Measures |
+|-----------|------|------------------|
+| Technical Acumen | **TA** | Depth of domain knowledge and problem-solving ability |
+| Strategic Leadership | **SL** | Vision, decision-making, long-term thinking |
+| Ethical Responsibility | **ER** | Integrity, compliance, and values-driven behaviour |
+| Business Profitability | **BP** | Commercial mindset, ROI awareness |
+| Behavioral Speed | **BS** | Cognitive processing speed under timed pressure |
+
+---
+
+## 🚀 Quick Start
 
 ### Prerequisites
-*   Python 3.8 or higher installed.
-*   Git installed.
+- Python 3.8+
+- pip
+- Git
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/shouryasingh2311/Decihire-Production.git
-cd deci_hier
-```
+### Installation
 
-### 2. Create a virtual environment
-It is recommended to use a virtual environment to manage dependencies.
-**On Windows:**
 ```bash
+# Clone the repository
+git clone https://github.com/shouryasingh2311/Decihire.git
+cd Decihire
+
+# Create and activate virtual environment
 python -m venv venv
+
+# Windows
 venv\Scripts\activate
-```
-**On macOS/Linux:**
-```bash
-python3 -m venv venv
+
+# macOS / Linux
 source venv/bin/activate
-```
 
-### 3. Install Requirements
-With your virtual environment active, run:
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 4. Run the Application
-Start the Flask development server by running:
-```bash
+# Run the application
 python decihier.py
 ```
 
-### 5. Access the app
-The application will start on port 5000. Open your browser and navigate to:
-*   **Candidate Portal:** `http://localhost:5000/`
-*   **HR Portal to Create Tests:** `http://localhost:5000/hr`
-*   **HR Dashboard (View Results):** `http://localhost:5000/hr/dashboard`
+Open your browser and navigate to **http://localhost:5000**
 
-## Working Flow
-1. **HR Admin** goes to `/hr`, selects a job role (e.g., 'Cloud Architect'), and generates a new Test ID.
-2. **Candidate** visits the main page `/`, logs in using their name and the Test ID generated by the HR Admin.
-3. Candidate completes the timed assessment.
-4. Once completed, the candidate is redirected to a thank you page.
-5. **HR Admin** can view the submitted results securely via `/hr/dashboard` to see the candidate's WorkDNA and behavioral metrics.
+---
+
+## 🌐 Routes
+
+| Route | Portal | Description |
+|-------|--------|-------------|
+| `/` | Candidate | Login with Test ID and name; begin timed assessment |
+| `/hr` | HR Admin | Generate new test keys per job role |
+| `/hr/dashboard` | HR Admin | View submitted results, WorkDNA scores and analytics |
+
+---
+
+## 🔄 Workflow
+
+```
+┌─────────────────────────────────────────────────────┐
+│                  DECIHIRE FLOW                      │
+├────────────────────┬────────────────────────────────┤
+│  HR ADMIN          │  CANDIDATE                     │
+│  /hr               │  /                             │
+│  ↓                 │  ↓                             │
+│  Select job role   │  Enter name + Test ID          │
+│  ↓                 │  ↓                             │
+│  Generate Test ID  │  Complete timed assessment     │
+│  ↓                 │  ↓                             │
+│  Share with cand.  │  Thank you page                │
+│                    │                                │
+│  /hr/dashboard ←───┘                               │
+│  View WorkDNA +                                     │
+│  behavioral report                                  │
+└─────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🏗️ Project Structure
+
+```
+Decihire/
+├── decihier.py          # Main Flask app — routes, scoring engine, session logic
+├── questions.json       # Role-specific question bank (multiple job profiles)
+├── requirements.txt     # Python dependencies
+├── vercel.json          # Vercel serverless deployment config
+├── static/              # CSS, JS, assets
+└── templates/           # Jinja2 HTML templates
+    ├── index.html       # Candidate login & assessment portal
+    └── hr/              # HR dashboard templates
+```
+
+---
+
+## ⚙️ Scoring Engine
+
+DeciHire's scoring engine evaluates each question response across two axes:
+
+1. **Correctness** — which WorkDNA dimension(s) the selected answer maps to
+2. **Response Time** — whether the time taken falls in the optimal band for that question type
+
+### Time-Based Multiplier
+
+| Response Speed | Outcome |
+|----------------|---------|
+| < Minimum threshold | Heavy penalty applied |
+| Within optimal band | Full score + bonus |
+| > Maximum threshold | Heavy penalty applied |
+
+Final scores are normalized to produce a WorkDNA percentage for each of the 5 dimensions.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Backend | Python 3.8+, Flask 3.x |
+| Frontend | Vanilla HTML / CSS / JavaScript |
+| Animations | GSAP |
+| Question Bank | JSON (role-specific) |
+| Session | Flask server-side sessions |
+| Hosting | Vercel (Serverless Python) |
+
+---
+
+## 📄 License
+
+MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+<div align="center">
+
+*Built with ❤️ to revolutionise the hiring process*
+
+</div>
