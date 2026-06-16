@@ -11,6 +11,8 @@
 
 🔗 **Live Demo:** [decihire-production.vercel.app](https://decihire-production.vercel.app/)
 
+<img src="decihire.png" alt="DeciHire Dashboard" width="800px" style="border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); margin-top: 20px;" />
+
 </div>
 
 ---
@@ -80,7 +82,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 # Run the application
-python decihier.py
+python decihire.py
 ```
 
 Open your browser and navigate to **http://localhost:5000**
@@ -124,7 +126,7 @@ Open your browser and navigate to **http://localhost:5000**
 
 ```
 Decihire/
-├── decihier.py          # Main Flask app — routes, scoring engine, session logic
+├── decihire.py          # Main Flask app — routes, scoring engine, session logic
 ├── questions.json       # Role-specific question bank (multiple job profiles)
 ├── requirements.txt     # Python dependencies
 ├── vercel.json          # Vercel serverless deployment config

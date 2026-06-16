@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "decihier.py",
+            "src": "decihire.py",
             "use": "@vercel/python"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "decihier.py"
+            "dest": "decihire.py"
         }
     ]
 }
